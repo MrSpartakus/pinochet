@@ -1,12 +1,15 @@
 # Deaths and Disappearances in the Pinochet Regime: A New Dataset
 
-This Github repository contains data and documented R code for [Deaths and Disappearances in the Pinochet Regime: A New Dataset](https://osf.io/rm4y8) by Freire et al (2019). We coded the personal details of 2,398 victims named in the Chilean Truth Commission Report along with information about the perpetrators and geographical coordinates for all identifiable atrocity locations. The dataset covers from 1973 to 1990 and includes 59 indicators. Please refer to our [accompanying article](https://osf.io/rm4y8) and our [online appendix](http://github.com/danilofreire/pinochet/manuscript/online-appendix/online-appendix.pdf) for more details.
+[![DOI](https://zenodo.org/badge/103286196.svg)](https://zenodo.org/badge/latestdoi/103286196)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/pinochet?color=blue)](https://cran.r-project.org/package=pinochet)
 
-This branch has the data and code for the main article. The source code for the `pinochet` package is available in the [package branch](https://github.com/danilofreire/pinochet/tree/package).
+This Github repository contains data and documented R code for [Deaths and Disappearances in the Pinochet Regime: A New Dataset](https://doi.org/10.31235/osf.io/vqnwu) by Freire et al (2019). We coded the personal details of 2,398 victims named in the Chilean Truth Commission Report along with information about the perpetrators and geographical coordinates for all identifiable atrocity locations. The dataset covers from 1973 to 1990 and includes 59 indicators. Please refer to our [accompanying article](https://doi.org/10.31235/osf.io/vqnwu) and our [online appendix](https://osf.io/8fkxq) for more details.
+
+This branch has the data and code for the main article. The source code for the `pinochet` `R` package is available in the [package branch of this repository](https://github.com/danilofreire/pinochet/tree/package).
 
 ## Installation
 
-The dataset is available both as an [Excel spreadsheet](http://github.com/danilofreire/pinochet/data/pinochet.xlsx) and as the `pinochet` package for `R`. The stable version of the package is on [CRAN](https://cran.r-project.org/package=pinochet). You can install it with:
+The dataset is available in three formats: as an [Excel spreadsheet](https://github.com/danilofreire/pinochet/raw/master/data/pinochet.xlsx), a [`csv` file](https://raw.githubusercontent.com/danilofreire/pinochet/master/data/pinochet.csv),  and as the [`pinochet` package for `R`](http://github.com/danilofreire/pinochet/tree/package). The stable version of the package is on [CRAN](https://cran.r-project.org/package=pinochet). You can install it with:
 
 ```
 install.packages("pinochet")
@@ -18,7 +21,7 @@ We plan to update the dataset by including information from other official sourc
 if (!require("devtools")) {
     install.packages("devtools")
 }
-devtools::install_github("danilo/pinochet", ref = "package")
+devtools::install_github("danilofreire/pinochet", ref = "package")
 ```
 
 Then load the dataset with:
@@ -32,7 +35,7 @@ data(pinochet)
 
 There are 59 variables in our dataset. Most of them refer to information about the victims, such as gender, age, first and last name, and their political affiliation (if available). The Chilean Truth Commission Report, our main data source, also mentions some characteristics of the perpetrators when they could be identified. We include coordinates of latitude and longitude for all identifiable places used for torture or executions. We created a variable indicating whether the coordinates are exact or not. In some cases, the Truth Commission was not able to locate where the atrocities took place. We likewise indicate that the coordinates are approximate. 
 
-Our [data codebook](https://github.com/danilofreire/pinochet/manuscript/online-appendix.pdf) has the description of the variables. You can quickly see the variable names with: 
+Our [data codebook](https://osf.io/8fkxq) has the description of the variables. You can quickly see the variable names with: 
 
 ```
 names(pinochet)
@@ -65,7 +68,7 @@ pinochet %>%
   scale_y_continuous(breaks = c(0, 500, 1000, 1274))
 ```
 
-!["Human rights abuses in the Pinochet regime, 1973-1990"](https://github.com/danilofreire/pinochet/raw/rap/figures/time-trend.png)
+!["Human rights abuses in the Pinochet regime, 1973-1990"](https://github.com/danilofreire/pinochet/raw/master/figures/time-trend.png)
 
 We can also plot the geographical locations of the human rights abuses: 
 
@@ -122,7 +125,7 @@ ggplot() +
   theme(legend.title=element_blank())
 ```
 
-!["Spatial variation in human rights abuses in the Pinochet regime, 1973-1990"](https://github.com/danilofreire/pinochet/raw/rap/figures/map.png)
+!["Spatial variation in human rights abuses in the Pinochet regime, 1973-1990"](https://github.com/danilofreire/pinochet/raw/master/figures/map.png)
 
 We believe our data open new topics of research. For instance, researchers can test whether the Pinochet regime has caused attitudinal changes in direct or indirect victims, the relationship between human rights abuses and post-regime levels of interpersonal violence, or investigate the connections between international legitimacy and domestic politics in repressive regimes. These questions are still discussed in the literature and our dataset provides a way to empirically test them.
 
@@ -137,7 +140,7 @@ You can cite the manuscript as:
 ```
 @misc{freire2019pinochet,
   title={{Deaths and Disappearances in the Pinochet Regime: A New Dataset}},
-  howpublished = {\url{https://osf.io/rm4y8}},
+  howpublished = {\url{https://doi.org/10.31235/osf.io/vqnwu}},
   publisher={Open Science Framework},
   author={Freire, Danilo and Meadowcroft, John and Skarbek, David and Guerrero, Eugenia},
   year={2019},
@@ -148,7 +151,7 @@ You can cite the manuscript as:
 If you use the `pinochet` package, you can cite it as:
 
 ```
-@Manual{,
+@Manual{freire2019package,
     title = {pinochet: Packages data about the victims of the Pinochet regime},
     author = {Danilo Freire and Lucas Mingardi and Robert McDonnell},
     year = {2019},
